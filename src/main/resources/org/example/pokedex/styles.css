@@ -1,0 +1,28 @@
+.identity {
+  -fx-font-family: Georgia;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+  -fx-stroke: black;
+  -fx-stroke-width: 2;
+  -fx-text-fill: #ffffff;
+  -fx-background-color: rgb(36, 52, 75);
+  -fx-background-radius: 30;
+}
+.type {
+  -fx-font-family: Noto Sans;
+  -fx-font-size: 20px;
+  -fx-stroke: black;
+  -fx-stroke-width: 2;
+  -fx-text-fill: rgb(26, 38, 54);
+}
+
+#nameLabel {
+  -fx-font-family: Georgia;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+  -fx-stroke: black;
+  -fx-stroke-width: 2;
+  -fx-text-fill: black;
+}
+
+
