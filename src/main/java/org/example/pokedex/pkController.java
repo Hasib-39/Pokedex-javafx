@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class pkController {
@@ -32,17 +34,39 @@ public class pkController {
     @FXML
     private ImageView img;
     @FXML
-    private Label nameLabel;
+    private Label name;
     @FXML
     private Button UnfavBtn;
     @FXML
     private Button favBtn;
     private PokemonModel pokemon;
+    private final Map<String, String> color_map = new HashMap<>();
+
+    public void initColor() {
+        color_map.put("Normal", "#A8A77A");
+        color_map.put("Fire", "#EE8130");
+        color_map.put("Water", "#6390F0");
+        color_map.put("Electric", "#F7D02C");
+        color_map.put("Grass", "#7AC74C");
+        color_map.put("Ice", "#96D9D6");
+        color_map.put("Fighting", "#C22E28");
+        color_map.put("Poison", "#A33EA1");
+        color_map.put("Ground", "#E2BF65");
+        color_map.put("Flying", "#A98FF3");
+        color_map.put("Psychic", "#F95587");
+        color_map.put("Bug", "#A6B91A");
+        color_map.put("Rock", "#B6A136");
+        color_map.put("Ghost", "#735797");
+        color_map.put("Dragon", "#6F35FC");
+        color_map.put("Dark", "#705746");
+        color_map.put("Steel", "#B7B7CE");
+        color_map.put("Fairy", "#D685AD");
+    }
 
     public void setData(PokemonModel pokemon) {
         this.pokemon = pokemon;
         idLabel.setText(Integer.toString(pokemon.pokID));
-        nameLabel.setText(pokemon.pokName);
+        name.setText(pokemon.pokName);
         try {
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(pokemon.getImgSrc())));
             img.setImage(image);
@@ -68,14 +92,14 @@ public class pkController {
     }
 
     public void onButtonClick(PokemonModel pokemon) throws IOException {
-        System.out.println(pokemon.pokName);
+        initColor();
 
         VBox vbox = new VBox();
         vbox.setSpacing(10);
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pokemonScene.fxml"));
         Parent root = fxmlLoader.load();
-
+        root.setStyle("-fx-background-color: " + color_map.get(pokemon.type1) + ";");
         newSceneController newscctrl = fxmlLoader.getController();
         newscctrl.setPokID("Pokemon ID: " + pokemon.pokID);
         newscctrl.setNameLabel(pokemon.pokName);
@@ -130,5 +154,5 @@ public class pkController {
             e.printStackTrace();
         }
     }
-    
+
 }

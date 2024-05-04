@@ -15,12 +15,12 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="266.0">
                <children>
-                  <Label fx:id="nameLabel" prefHeight="77.0" prefWidth="225.0" styleClass="info" stylesheets="@styles.css" text="Pikachu">
+                  <Label fx:id="name" prefHeight="77.0" prefWidth="225.0" styleClass="info" stylesheets="@styles.css" text="Pikachu" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idLabel" prefHeight="30.0" prefWidth="90.0" styleClass="info" stylesheets="@styles.css" text="#001">
+                  <Label fx:id="idLabel" prefHeight="30.0" prefWidth="90.0" styleClass="info" stylesheets="@styles.css" text="#001" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="24.0" />
                      </font>

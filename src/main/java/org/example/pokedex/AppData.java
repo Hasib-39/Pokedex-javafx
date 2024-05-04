@@ -107,7 +107,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
-                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_search.get(i).type1) + ";");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -133,7 +133,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
-                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_fav.get(i).type1) + ";");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
