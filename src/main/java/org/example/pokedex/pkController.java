@@ -93,7 +93,6 @@ public class pkController {
 
     public void onButtonClick(PokemonModel pokemon) throws IOException {
         initColor();
-
         VBox vbox = new VBox();
         vbox.setSpacing(10);
 

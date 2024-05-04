@@ -36,7 +36,6 @@ public class PokemonModel {
     }
 
     public String getImgSrc() {
-//        System.out.println("/img/all/" + this.pokName.toLowerCase() + ".png");
         return this.pokName.toLowerCase() + ".png";
     }
 }

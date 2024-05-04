@@ -1,15 +1,23 @@
 package org.example.pokedex;
 
-
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,15 +27,23 @@ import java.util.*;
 public class AppData implements Initializable {
 
     @FXML
+    private Button favBtn;
+    @FXML
     private TextField searchBar;
+    @FXML
+    private Button searchBtn;
     @FXML
     private GridPane gridpane;
 
     @FXML
     private ScrollPane scrollpane;
-
+    @FXML
+    private Button details;
+    private int cardno = 30;
     private int beginCardno = 0;
     private int endCardno = 30;
+    private int fav_pokno;
+    private int search_pokno;
     private int maxcardno = 801;
     private String page_info = "Home";
     private List<PokemonModel> pokemons = new ArrayList<>();
