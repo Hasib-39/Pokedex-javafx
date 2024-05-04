@@ -1,23 +1,15 @@
 package org.example.pokedex;
 
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,23 +19,22 @@ import java.util.*;
 public class AppData implements Initializable {
 
     @FXML
-    private Button favBtn;
-    @FXML
     private TextField searchBar;
-    @FXML
-    private Button searchBtn;
     @FXML
     private GridPane gridpane;
 
     @FXML
     private ScrollPane scrollpane;
-    @FXML
-    private Button details;
+
+    private int beginCardno = 0;
+    private int endCardno = 30;
+    private int maxcardno = 801;
+    private String page_info = "Home";
     private List<PokemonModel> pokemons = new ArrayList<>();
     private Map<String, String> color_map = new HashMap<>();
 
     public List<PokemonModel> getPokemon(String sql, int value) {
-        List<PokemonModel> pokemons = new ArrayList<>();
+        List<PokemonModel> pokemons_all = new ArrayList<>();
         PokemonModel pokemon;
         Connection connection = DbController.getInstance();
         try {
@@ -79,23 +70,26 @@ public class AppData implements Initializable {
                 boolean favourite;
                 favourite = !fav.equals("False");
                 pokemon = new PokemonModel(pokID, pokName, type1, type2, total, hp, attack, defense, spAttack, spDefense, speed, generation, legendary, favourite);
-                pokemons.add(pokemon);
+                pokemons_all.add(pokemon);
             }
             resultSet.close();
         } catch (Exception e) {
             System.out.println("App data: " + e);
         }
-
-        return pokemons;
+        pokemons.addAll(pokemons_all);
+        return pokemons_all;
     }
 
     public void Search() {
         String keyword = searchBar.getText();
+        page_info = "Search";
         if (Objects.equals(keyword, "")) return;
         List<PokemonModel> pokemons_search = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE NAME LIKE ? OR TYPE1 LIKE ? OR TYPE2 LIKE ?", 2));
+        if (pokemons_search.isEmpty()) return;
         gridpane.getChildren().clear();
         int column = 0;
         int row = 1;
+
         try {
             for (int i = 0; i < pokemons_search.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -119,6 +113,7 @@ public class AppData implements Initializable {
 
     public void FavPokemons() {
         List<PokemonModel> pokemons_fav = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE FAVOURITE = ?", 3));
+        page_info = "Favourite";
         gridpane.getChildren().clear();
         int column = 0;
         int row = 1;
@@ -143,21 +138,55 @@ public class AppData implements Initializable {
         }
     }
 
-    public void print(PokemonModel pokemon) {
-        System.out.println(pokemon.pokID);
-        System.out.println(pokemon.pokName);
-        System.out.println(pokemon.attack);
-        System.out.println();
+    public void nextprev_init() {
+        beginCardno = 0;
+        endCardno = 30;
     }
 
-    public void home() {
+    public void nextClick() {
+        if (Objects.equals(page_info, "Home")) {
+            beginCardno = endCardno;
+            if (endCardno + 30 > maxcardno) {
+                endCardno = maxcardno;
+            } else {
+                endCardno += 30;
+            }
+
+            home(beginCardno, endCardno);
+        }
+    }
+
+    public void prevClick() {
+        if (Objects.equals(page_info, "Home")) {
+            if (beginCardno - 31 < 0) {
+                beginCardno = 0;
+            } else {
+                beginCardno -= 31;
+            }
+            endCardno -= 30;
+            home(beginCardno, endCardno);
+        } else if (Objects.equals(page_info, "Favourite")) {
+//            favourite page
+
+        } else {
+//            search page
+        }
+    }
+
+    public void homeClick() {
+        home(0, 30);
+    }
+
+    public void home(int beginCardno, int endCardno) {
+        page_info = "Home";
         gridpane.getChildren().clear();
-        pokemons.addAll(getPokemon("SELECT * FROM POKEMON", 1));
+        scrollpane.setVvalue(0);
+//        pokemons.addAll(getPokemon("SELECT * FROM POKEMON", 1));
 //        print(pokemons.get(5));
         int column = 0;
         int row = 1;
         try {
-            for (int i = 0; i < pokemons.size(); i++) {
+            for (int i = beginCardno; i < endCardno; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("pokemonCard.fxml"));
                 AnchorPane anchorpane = fxmlLoader.load();
@@ -206,7 +235,7 @@ public class AppData implements Initializable {
         int column = 0;
         int row = 1;
         try {
-            for (int i = 0; i < pokemons.size(); i++) {
+            for (int i = beginCardno; i < endCardno; i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("pokemonCard.fxml"));
                 AnchorPane anchorpane = fxmlLoader.load();
