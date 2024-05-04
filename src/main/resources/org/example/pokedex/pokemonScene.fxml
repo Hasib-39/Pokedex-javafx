@@ -23,14 +23,14 @@
       <Label layoutX="300.0" layoutY="277.0" styleClass="type" stylesheets="@styles.css" text="Attack" textFill="WHITE" />
       <Label layoutX="300.0" layoutY="240.0" styleClass="type" stylesheets="@styles.css" text="HP: " textFill="WHITE" />
       <Label layoutX="300.0" layoutY="201.0" styleClass="type" stylesheets="@styles.css" text="Total: " textFill="WHITE" />
-      <Label fx:id="nameLabel" alignment="TOP_CENTER" layoutX="87.0" layoutY="366.0" prefHeight="123.0" prefWidth="179.0" stylesheets="@styles.css" text="Pokemon Name:" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Label fx:id="nameLabel" alignment="TOP_CENTER" layoutX="62.0" layoutY="366.0" prefHeight="123.0" prefWidth="214.0" styleClass="info" stylesheets="@styles.css" text="Pokemon Name:" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
       <Label fx:id="pokID" layoutX="297.0" layoutY="163.0" styleClass="type" stylesheets="@styles.css" text="Pokemon ID: " textFill="WHITE" />
-      <ProgressBar fx:id="totalBar" layoutX="409.0" layoutY="207.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="spdBar" layoutX="409.0" layoutY="409.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="spdefBar" layoutX="409.0" layoutY="380.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="spatkBar" layoutX="409.0" layoutY="350.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="defBar" layoutX="409.0" layoutY="314.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="atkBar" layoutX="409.0" layoutY="283.0" prefWidth="200.0" progress="0.0" />
-      <ProgressBar fx:id="hpBar" layoutX="409.0" layoutY="246.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="totalBar" layoutX="442.0" layoutY="211.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="spdBar" layoutX="442.0" layoutY="413.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="spdefBar" layoutX="442.0" layoutY="384.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="spatkBar" layoutX="442.0" layoutY="354.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="defBar" layoutX="442.0" layoutY="318.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="atkBar" layoutX="442.0" layoutY="287.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="hpBar" layoutX="442.0" layoutY="250.0" prefWidth="200.0" progress="0.0" />
    </children>
 </AnchorPane>

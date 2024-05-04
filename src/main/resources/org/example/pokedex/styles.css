@@ -9,21 +9,13 @@
   -fx-background-radius: 30;
 }
 .type {
-  -fx-font-family: Noto Sans;
-  -fx-font-size: 20px;
-  -fx-stroke: black;
-  -fx-stroke-width: 2;
-  -fx-text-fill: rgb(26, 38, 54);
+    -fx-font-size: 26px;
+    -fx-font-weights: bold;
+    -fx-font-family: Helvetica;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 0);
 }
 
-#nameLabel {
-  -fx-font-family: Georgia;
-  -fx-font-weight: bold;
-  -fx-font-size: 20px;
-  -fx-stroke: black;
-  -fx-stroke-width: 2;
-  -fx-text-fill: black;
-}
 
 .dashBtns {
   -fx-background-color: #2a75bb;
@@ -65,7 +57,7 @@
 .info {
   -fx-text-fill: white;
   -fx-font-family: Helvetica;
-  -fx-font-size: 26px;
+  -fx-font-size: 28px;
   -fx-font-weight: bold;
   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 5, 0, 0, 0);
 }
