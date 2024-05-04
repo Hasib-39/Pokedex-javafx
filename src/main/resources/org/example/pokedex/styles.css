@@ -47,20 +47,39 @@
 }
 
 .cardBtns {
-  -fx-background-color: #2a75bb;
-  -fx-text-fill: #ffcb05;
-  -fx-font-weight: bold;
-  -fx-font-size: 10px;
-  -fx-font-family: Arial;
+  -fx-background-color: rgba(255, 255, 255, 0.2);
+  -fx-background-radius: 5;
+  -fx-text-fill: white;
+  -fx-font-size: 12px;
+  -fx-border-color: transparent;
+  -fx-border-radius: 5;
+  -fx-font-weights: bold;
+  -fx-font-family: Helvetica;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 0);
 }
 .cardBtns:hover {
-  -fx-background-color: #3c5aa6;
-  -fx-text-fill: #c7a008;
-  -fx-font-weight: bold;
-  -fx-font-size: 10px;
-  -fx-font-family: Arial;
+  -fx-background-color: rgba(255, 255, 255, 0.5);
+  -fx-font-weights: bold;
 }
 
 .info {
   -fx-text-fill: white;
+  -fx-font-family: Helvetica;
+  -fx-font-size: 26px;
+  -fx-font-weight: bold;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 5, 0, 0, 0);
+}
+#searchBar {
+  -fx-background-color: #f4f4f4;
+  -fx-background-radius: 5;
+  -fx-border-color: #ccc;
+  -fx-border-radius: 5;
+  -fx-border-width: 1px;
+  -fx-padding: 8px;
+  -fx-font-size: 14px;
+  -fx-font-family: Helvetica;
+}
+#searchBar:focused {
+  -fx-border-color: #66afe9; /* Blue border on focus */
+  -fx-border-width: 2px; /* Increase border width on focus */
 }

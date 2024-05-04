@@ -34,8 +34,8 @@
             </ImageView>
          </children>
       </VBox>
-      <Button fx:id="details" layoutX="12.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="cardBtns" stylesheets="@styles.css" text="DETAILS" />
-      <Button fx:id="favBtn" layoutX="93.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" styleClass="cardBtns" stylesheets="@styles.css" text="FAVOURITE" />
-      <Button fx:id="UnfavBtn" layoutX="185.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="cardBtns" stylesheets="@styles.css" text="UNFAVOURITE" />
+      <Button fx:id="details" layoutX="12.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" styleClass="cardBtns" stylesheets="@styles.css" text="DETAILS" />
+      <Button fx:id="favBtn" layoutX="88.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="81.0" styleClass="cardBtns" stylesheets="@styles.css" text="FAVOURITE" />
+      <Button fx:id="UnfavBtn" layoutX="178.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="97.0" styleClass="cardBtns" stylesheets="@styles.css" text="UNFAVOURITE" />
    </children>
 </AnchorPane>
