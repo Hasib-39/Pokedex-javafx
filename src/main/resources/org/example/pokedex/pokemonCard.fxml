@@ -15,12 +15,12 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="266.0">
                <children>
-                  <Label fx:id="nameLabel" prefHeight="77.0" prefWidth="225.0" text="Pikachu">
+                  <Label fx:id="nameLabel" prefHeight="77.0" prefWidth="225.0" styleClass="info" stylesheets="@styles.css" text="Pikachu">
                      <font>
                         <Font name="Cambria Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idLabel" prefHeight="30.0" prefWidth="90.0" text="#001">
+                  <Label fx:id="idLabel" prefHeight="30.0" prefWidth="90.0" styleClass="info" stylesheets="@styles.css" text="#001">
                      <font>
                         <Font name="Cambria Bold" size="24.0" />
                      </font>
@@ -34,8 +34,8 @@
             </ImageView>
          </children>
       </VBox>
-      <Button fx:id="details" layoutX="25.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="56.0" text="Details" />
-      <Button fx:id="favBtn" layoutX="100.0" layoutY="166.0" mnemonicParsing="false" text="Favourite" />
-      <Button fx:id="UnfavBtn" layoutX="187.0" layoutY="166.0" mnemonicParsing="false" text="Unfavourite" />
+      <Button fx:id="details" layoutX="12.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="cardBtns" stylesheets="@styles.css" text="DETAILS" />
+      <Button fx:id="favBtn" layoutX="93.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" styleClass="cardBtns" stylesheets="@styles.css" text="FAVOURITE" />
+      <Button fx:id="UnfavBtn" layoutX="185.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" styleClass="cardBtns" stylesheets="@styles.css" text="UNFAVOURITE" />
    </children>
 </AnchorPane>

@@ -28,7 +28,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Button fx:id="favBtn" mnemonicParsing="false" onAction="#FavPokemons" text="Favourites">
+                  <Button fx:id="favBtn" mnemonicParsing="false" onAction="#FavPokemons" styleClass="dashBtns" stylesheets="@styles.css" text="FAVOURITES">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
@@ -52,17 +52,17 @@
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#home" text="Home">
+                        <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#home" prefHeight="33.0" prefWidth="101.0" styleClass="dashBtns" stylesheets="@styles.css" text="HOME">
                            <HBox.margin>
                               <Insets left="15.0" top="15.0" />
                            </HBox.margin>
                         </Button>
-                        <TextField fx:id="searchBar" prefHeight="31.0" prefWidth="481.0">
+                        <TextField fx:id="searchBar" prefHeight="33.0" prefWidth="481.0">
                            <HBox.margin>
                               <Insets left="15.0" top="15.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#Search" text="Search">
+                        <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#Search" styleClass="dashBtns" stylesheets="@styles.css" text="SEARCH">
                            <HBox.margin>
                               <Insets left="15.0" top="15.0" />
                            </HBox.margin>

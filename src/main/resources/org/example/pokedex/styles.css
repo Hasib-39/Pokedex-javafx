@@ -25,4 +25,42 @@
   -fx-text-fill: black;
 }
 
+.dashBtns {
+  -fx-background-color: #2a75bb;
+  -fx-text-fill: #ffcb05;
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-font-family: Arial;
+}
+.dashBtns:hover {
+  -fx-background-color: #3c5aa6;
+  -fx-text-fill: #c7a008;
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-font-family: Arial;
+}
 
+#anchor {
+  -fx-background-color: #ffeda3;
+  -fx-background-radius: 10px;
+  -fx-text-fill: #3c5aa6;
+}
+
+.cardBtns {
+  -fx-background-color: #2a75bb;
+  -fx-text-fill: #ffcb05;
+  -fx-font-weight: bold;
+  -fx-font-size: 10px;
+  -fx-font-family: Arial;
+}
+.cardBtns:hover {
+  -fx-background-color: #3c5aa6;
+  -fx-text-fill: #c7a008;
+  -fx-font-weight: bold;
+  -fx-font-size: 10px;
+  -fx-font-family: Arial;
+}
+
+.info {
+  -fx-text-fill: #3c5aa6;
+}

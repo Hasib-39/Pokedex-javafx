@@ -22,9 +22,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class AppData implements Initializable {
 
@@ -42,6 +40,7 @@ public class AppData implements Initializable {
     @FXML
     private Button details;
     private List<PokemonModel> pokemons = new ArrayList<>();
+    private Map<String, String> color_map = new HashMap<>();
 
     public List<PokemonModel> getPokemon(String sql, int value) {
         List<PokemonModel> pokemons = new ArrayList<>();
@@ -92,6 +91,7 @@ public class AppData implements Initializable {
 
     public void Search() {
         String keyword = searchBar.getText();
+        if (Objects.equals(keyword, "")) return;
         List<PokemonModel> pokemons_search = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE NAME LIKE ? OR TYPE1 LIKE ? OR TYPE2 LIKE ?", 2));
         gridpane.getChildren().clear();
         int column = 0;
@@ -107,6 +107,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -132,6 +133,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -165,6 +167,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -174,10 +177,32 @@ public class AppData implements Initializable {
         }
     }
 
+    public void initColor() {
+        color_map.put("Normal", "#A8A77A");
+        color_map.put("Fire", "#EE8130");
+        color_map.put("Water", "#6390F0");
+        color_map.put("Electric", "#F7D02C");
+        color_map.put("Grass", "#7AC74C");
+        color_map.put("Ice", "#96D9D6");
+        color_map.put("Fighting", "#C22E28");
+        color_map.put("Poison", "#A33EA1");
+        color_map.put("Ground", "#E2BF65");
+        color_map.put("Flying", "#A98FF3");
+        color_map.put("Psychic", "#F95587");
+        color_map.put("Bug", "#A6B91A");
+        color_map.put("Rock", "#B6A136");
+        color_map.put("Ghost", "#735797");
+        color_map.put("Dragon", "#6F35FC");
+        color_map.put("Dark", "#705746");
+        color_map.put("Steel", "#B7B7CE");
+        color_map.put("Fairy", "#D685AD");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pokemons.addAll(getPokemon("SELECT * FROM POKEMON", 1));
 //        print(pokemons.get(5));
+        initColor();
         int column = 0;
         int row = 1;
         try {
@@ -191,9 +216,9 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
-
             }
         } catch (Exception e) {
             e.printStackTrace();
