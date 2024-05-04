@@ -28,7 +28,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Button fx:id="favBtn" mnemonicParsing="false" text="Favourites">
+                  <Button fx:id="favBtn" mnemonicParsing="false" onAction="#FavPokemons" text="Favourites">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>

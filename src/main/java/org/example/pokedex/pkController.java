@@ -7,15 +7,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class pkController {
@@ -28,8 +34,9 @@ public class pkController {
     @FXML
     private Label nameLabel;
     @FXML
-//    private RadioButton favRadio;
-
+    private Button UnfavBtn;
+    @FXML
+    private Button favBtn;
     private PokemonModel pokemon;
 
     public void setData(PokemonModel pokemon) {
@@ -50,6 +57,13 @@ public class pkController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        });
+
+        favBtn.setOnAction((event) -> {
+            favourite(pokemon, true);
+        });
+        UnfavBtn.setOnAction((event) -> {
+            favourite(pokemon, false);
         });
     }
 
@@ -96,7 +110,25 @@ public class pkController {
         stage.show();
     }
 
-//    public void favourite(PokemonModel pokemon) {
-//
-//    }
+
+    public void favourite(PokemonModel pokemon, boolean value) {
+        Connection connection = DbController.getInstance();
+        String update_query = "UPDATE POKEMON SET FAVOURITE = ? WHERE ID = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(update_query);
+            if (value) {
+                statement.setString(1, "True");
+                statement.setInt(2, pokemon.pokID);
+            } else {
+                statement.setString(1, "False");
+                statement.setInt(2, pokemon.pokID);
+            }
+
+            int selection_update = statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }

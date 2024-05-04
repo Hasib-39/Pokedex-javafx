@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,6 +54,8 @@ public class AppData implements Initializable {
                 statement.setString(1, "%" + keyword + "%");
                 statement.setString(2, "%" + keyword + "%");
                 statement.setString(3, "%" + keyword + "%");
+            } else if (value == 3) {
+                statement.setString(1, "True");
             }
             ResultSet resultSet = statement.executeQuery();
 
@@ -99,7 +103,6 @@ public class AppData implements Initializable {
                 AnchorPane anchorpane = fxmlLoader.load();
                 pkController pokcontroller = fxmlLoader.getController();
                 pokcontroller.setData(pokemons_search.get(i));
-
                 if (column == 3) {
                     column = 0;
                     row++;
@@ -111,7 +114,31 @@ public class AppData implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void FavPokemons() {
+        List<PokemonModel> pokemons_fav = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE FAVOURITE = ?", 3));
+        gridpane.getChildren().clear();
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < pokemons_fav.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("pokemonCard.fxml"));
+                AnchorPane anchorpane = fxmlLoader.load();
+                pkController pokcontroller = fxmlLoader.getController();
+                pokcontroller.setData(pokemons_fav.get(i));
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+                gridpane.add(anchorpane, column++, row);
+                GridPane.setMargin(anchorpane, new Insets(10));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void print(PokemonModel pokemon) {
@@ -134,7 +161,6 @@ public class AppData implements Initializable {
                 AnchorPane anchorpane = fxmlLoader.load();
                 pkController pokcontroller = fxmlLoader.getController();
                 pokcontroller.setData(pokemons.get(i));
-
                 if (column == 3) {
                     column = 0;
                     row++;
@@ -161,7 +187,6 @@ public class AppData implements Initializable {
                 AnchorPane anchorpane = fxmlLoader.load();
                 pkController pokcontroller = fxmlLoader.getController();
                 pokcontroller.setData(pokemons.get(i));
-
                 if (column == 3) {
                     column = 0;
                     row++;
