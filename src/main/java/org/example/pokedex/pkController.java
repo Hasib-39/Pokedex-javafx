@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -26,6 +27,8 @@ public class pkController {
     private ImageView img;
     @FXML
     private Label nameLabel;
+    @FXML
+//    private RadioButton favRadio;
 
     private PokemonModel pokemon;
 
@@ -92,4 +95,8 @@ public class pkController {
         stage.setScene(scene);
         stage.show();
     }
+
+//    public void favourite(PokemonModel pokemon) {
+//
+//    }
 }

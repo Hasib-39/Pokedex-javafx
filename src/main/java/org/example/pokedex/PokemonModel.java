@@ -16,9 +16,9 @@ public class PokemonModel {
     public int speed;
     public int generation;
     public boolean legendary;
+    public boolean favourite;
 
-
-    public PokemonModel(int pokID, String pokName, String type1, String type2, int total, int hp, int attack, int defense, int spAttack, int spDefense, int speed, int generation, boolean legendary) {
+    public PokemonModel(int pokID, String pokName, String type1, String type2, int total, int hp, int attack, int defense, int spAttack, int spDefense, int speed, int generation, boolean legendary, boolean favourite) {
         this.pokID = pokID;
         this.pokName = pokName;
         this.type1 = type1;
@@ -32,6 +32,7 @@ public class PokemonModel {
         this.speed = speed;
         this.generation = generation;
         this.legendary = legendary;
+        this.favourite = favourite;
     }
 
     public String getImgSrc() {
