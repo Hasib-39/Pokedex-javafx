@@ -8,9 +8,14 @@
 
 <AnchorPane fx:id="anchor" prefHeight="551.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pokedex.newSceneController">
    <children>
-      <ImageView fx:id="img" fitHeight="253.0" fitWidth="229.0" layoutX="62.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="167.0" fitWidth="173.0" layoutX="113.0" layoutY="191.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@question.png" />
+            <Image url="@pokeball_black2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img" fitHeight="214.0" fitWidth="229.0" layoutX="62.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@alomomola.png" />
          </image></ImageView>
       <Label fx:id="type1_label" alignment="CENTER" layoutX="312.0" layoutY="66.0" prefHeight="50.0" prefWidth="150.0" styleClass="identity" text="type1" />
       <Label fx:id="type2_label" alignment="CENTER" layoutX="474.0" layoutY="66.0" prefHeight="50.0" prefWidth="150.0" styleClass="identity" />

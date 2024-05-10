@@ -60,6 +60,8 @@ public class AppData implements Initializable {
                 statement.setString(1, "%" + keyword + "%");
                 statement.setString(2, "%" + keyword + "%");
                 statement.setString(3, "%" + keyword + "%");
+                statement.setString(4, keyword);
+
             } else if (value == 3) {
                 statement.setString(1, "True");
             }
@@ -100,7 +102,7 @@ public class AppData implements Initializable {
         String keyword = searchBar.getText();
         page_info = "Search";
         if (Objects.equals(keyword, "")) return;
-        List<PokemonModel> pokemons_search = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE NAME LIKE ? OR TYPE1 LIKE ? OR TYPE2 LIKE ?", 2));
+        List<PokemonModel> pokemons_search = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE NAME LIKE ? OR TYPE1 LIKE ? OR TYPE2 LIKE ? OR ID = ?", 2));
         if (pokemons_search.isEmpty()) return;
         gridpane.getChildren().clear();
         scrollpane.setVvalue(0);
@@ -164,35 +166,30 @@ public class AppData implements Initializable {
         endCardno = 30;
     }
 
+
     public void nextClick() {
         if (Objects.equals(page_info, "Home")) {
-            beginCardno = endCardno;
-            if (endCardno + 30 > maxcardno) {
-                endCardno = maxcardno;
-            } else {
-                endCardno += 30;
+            int newBeginCardno = Math.min(endCardno, maxcardno);
+            endCardno = Math.min(endCardno + 30, maxcardno);
+            if (newBeginCardno != beginCardno) {
+                beginCardno = newBeginCardno;
+                home(beginCardno, endCardno);
             }
-
-            home(beginCardno, endCardno);
         }
     }
 
     public void prevClick() {
         if (Objects.equals(page_info, "Home")) {
-            if (beginCardno - 31 < 0) {
-                beginCardno = 0;
-            } else {
-                beginCardno -= 31;
-            }
-            endCardno -= 30;
+            beginCardno = Math.max(beginCardno - 30, 0);
+            endCardno = beginCardno + 30;
             home(beginCardno, endCardno);
         } else if (Objects.equals(page_info, "Favourite")) {
-//            favourite page
-
+            // Handle favourite page
         } else {
-//            search page
+            // Handle search page
         }
     }
+
 
     public void homeClick() {
         home(0, 30);
@@ -228,25 +225,6 @@ public class AppData implements Initializable {
     }
 
     public void initColor() {
-//        color_map.put("Normal", "#A8A77A");
-//        color_map.put("Fire", "#EE8130");
-//        color_map.put("Water", "#6390F0");
-//        color_map.put("Electric", "#F7D02C");
-//        color_map.put("Grass", "#7AC74C");
-//        color_map.put("Ice", "#96D9D6");
-//        color_map.put("Fighting", "#C22E28");
-//        color_map.put("Poison", "#A33EA1");
-//        color_map.put("Ground", "#E2BF65");
-//        color_map.put("Flying", "#A98FF3");
-//        color_map.put("Psychic", "#F95587");
-//        color_map.put("Bug", "#A6B91A");
-//        color_map.put("Rock", "#B6A136");
-//        color_map.put("Ghost", "#735797");
-//        color_map.put("Dragon", "#6F35FC");
-//        color_map.put("Dark", "#705746");
-//        color_map.put("Steel", "#B7B7CE");
-//        color_map.put("Fairy", "#D685AD");
-
         color_map.put("Normal", "#A7A877");
         color_map.put("Fire", "#FB6C6C");
         color_map.put("Water", "#77BDFE");

@@ -155,15 +155,17 @@ public class pkController {
 
     public void favourite(PokemonModel pokemon, boolean value) {
         Connection connection = DbController.getInstance();
-        String update_query = "UPDATE POKEMON SET FAVOURITE = ? WHERE ID = ?";
+        String update_query = "UPDATE POKEMON SET FAVOURITE = ? WHERE ID = ? AND NAME = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(update_query);
             if (value) {
                 statement.setString(1, "True");
                 statement.setInt(2, pokemon.pokID);
+                statement.setString(3, pokemon.pokName);
             } else {
                 statement.setString(1, "False");
                 statement.setInt(2, pokemon.pokID);
+                statement.setString(3, pokemon.pokName);
             }
 
             int selection_update = statement.executeUpdate();
