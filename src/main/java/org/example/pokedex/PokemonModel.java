@@ -1,7 +1,5 @@
 package org.example.pokedex;
 
-import javafx.scene.layout.GridPane;
-
 public class PokemonModel {
     public int pokID;
     public String pokName;

@@ -1,21 +1,15 @@
 package org.example.pokedex;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -39,28 +33,9 @@ public class pkController {
     private Button UnfavBtn;
     @FXML
     private Button favBtn;
-    private PokemonModel pokemon;
     private final Map<String, String> color_map = new HashMap<>();
 
     public void initColor() {
-//        color_map.put("Normal", "#A8A77A");
-//        color_map.put("Fire", "#EE8130");
-//        color_map.put("Water", "#6390F0");
-//        color_map.put("Electric", "#F7D02C");
-//        color_map.put("Grass", "#7AC74C");
-//        color_map.put("Ice", "#96D9D6");
-//        color_map.put("Fighting", "#C22E28");
-//        color_map.put("Poison", "#A33EA1");
-//        color_map.put("Ground", "#E2BF65");
-//        color_map.put("Flying", "#A98FF3");
-//        color_map.put("Psychic", "#F95587");
-//        color_map.put("Bug", "#A6B91A");
-//        color_map.put("Rock", "#B6A136");
-//        color_map.put("Ghost", "#735797");
-//        color_map.put("Dragon", "#6F35FC");
-//        color_map.put("Dark", "#705746");
-//        color_map.put("Steel", "#B7B7CE");
-//        color_map.put("Fairy", "#D685AD");
 
         color_map.put("Normal", "#A7A877");
         color_map.put("Fire", "#FB6C6C");
@@ -83,7 +58,6 @@ public class pkController {
     }
 
     public void setData(PokemonModel pokemon) {
-        this.pokemon = pokemon;
         idLabel.setText(Integer.toString(pokemon.pokID));
         name.setText(pokemon.pokName);
         try {
@@ -102,12 +76,8 @@ public class pkController {
             }
         });
 
-        favBtn.setOnAction((event) -> {
-            favourite(pokemon, true);
-        });
-        UnfavBtn.setOnAction((event) -> {
-            favourite(pokemon, false);
-        });
+        favBtn.setOnAction((event) -> favourite(pokemon, true));
+        UnfavBtn.setOnAction((event) -> favourite(pokemon, false));
     }
 
     public void onButtonClick(PokemonModel pokemon) throws IOException {
@@ -169,9 +139,9 @@ public class pkController {
             }
 
             int selection_update = statement.executeUpdate();
-
+            System.out.println(selection_update);
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
