@@ -43,24 +43,43 @@ public class pkController {
     private final Map<String, String> color_map = new HashMap<>();
 
     public void initColor() {
-        color_map.put("Normal", "#A8A77A");
-        color_map.put("Fire", "#EE8130");
-        color_map.put("Water", "#6390F0");
-        color_map.put("Electric", "#F7D02C");
-        color_map.put("Grass", "#7AC74C");
-        color_map.put("Ice", "#96D9D6");
-        color_map.put("Fighting", "#C22E28");
-        color_map.put("Poison", "#A33EA1");
-        color_map.put("Ground", "#E2BF65");
-        color_map.put("Flying", "#A98FF3");
-        color_map.put("Psychic", "#F95587");
-        color_map.put("Bug", "#A6B91A");
-        color_map.put("Rock", "#B6A136");
-        color_map.put("Ghost", "#735797");
-        color_map.put("Dragon", "#6F35FC");
-        color_map.put("Dark", "#705746");
-        color_map.put("Steel", "#B7B7CE");
-        color_map.put("Fairy", "#D685AD");
+//        color_map.put("Normal", "#A8A77A");
+//        color_map.put("Fire", "#EE8130");
+//        color_map.put("Water", "#6390F0");
+//        color_map.put("Electric", "#F7D02C");
+//        color_map.put("Grass", "#7AC74C");
+//        color_map.put("Ice", "#96D9D6");
+//        color_map.put("Fighting", "#C22E28");
+//        color_map.put("Poison", "#A33EA1");
+//        color_map.put("Ground", "#E2BF65");
+//        color_map.put("Flying", "#A98FF3");
+//        color_map.put("Psychic", "#F95587");
+//        color_map.put("Bug", "#A6B91A");
+//        color_map.put("Rock", "#B6A136");
+//        color_map.put("Ghost", "#735797");
+//        color_map.put("Dragon", "#6F35FC");
+//        color_map.put("Dark", "#705746");
+//        color_map.put("Steel", "#B7B7CE");
+//        color_map.put("Fairy", "#D685AD");
+
+        color_map.put("Normal", "#A7A877");
+        color_map.put("Fire", "#FB6C6C");
+        color_map.put("Water", "#77BDFE");
+        color_map.put("Grass", "#48D0B0");
+        color_map.put("Electric", "#FFCE4B");
+        color_map.put("Ice", "#99D7D8");
+        color_map.put("Fighting", "#C03128");
+        color_map.put("Poison", "#9F419F");
+        color_map.put("Ground", "#E1C068");
+        color_map.put("Flying", "#A890F0");
+        color_map.put("Psychic", "#F95887");
+        color_map.put("Bug", "#A8B91F");
+        color_map.put("Rock", "#B8A038");
+        color_map.put("Ghost", "#705998");
+        color_map.put("Dark", "#6F5848");
+        color_map.put("Dragon", "#7138F8");
+        color_map.put("Steel", "#B8B8D0");
+        color_map.put("Fairy", "#A890F0");
     }
 
     public void setData(PokemonModel pokemon) {

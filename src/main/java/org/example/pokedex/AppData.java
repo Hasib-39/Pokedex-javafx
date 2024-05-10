@@ -103,6 +103,7 @@ public class AppData implements Initializable {
         List<PokemonModel> pokemons_search = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE NAME LIKE ? OR TYPE1 LIKE ? OR TYPE2 LIKE ?", 2));
         if (pokemons_search.isEmpty()) return;
         gridpane.getChildren().clear();
+        scrollpane.setVvalue(0);
         int column = 0;
         int row = 1;
 
@@ -117,7 +118,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
-                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_search.get(i).type1) + ";");
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_search.get(i).type1) + ";" + "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 7);");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -131,6 +132,7 @@ public class AppData implements Initializable {
         List<PokemonModel> pokemons_fav = new ArrayList<>(getPokemon("SELECT * FROM POKEMON WHERE FAVOURITE = ?", 3));
         page_info = "Favourite";
         gridpane.getChildren().clear();
+        scrollpane.setVvalue(0);
         int column = 0;
         int row = 1;
         try {
@@ -144,7 +146,10 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
-                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_fav.get(i).type1) + ";");
+//                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_fav.get(i).type1) + ";");
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons_fav.get(i).type1) + "; "
+                        + "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 7);");
+
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -212,7 +217,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
-                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";" + "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 7);");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
 
@@ -223,24 +228,43 @@ public class AppData implements Initializable {
     }
 
     public void initColor() {
-        color_map.put("Normal", "#A8A77A");
-        color_map.put("Fire", "#EE8130");
-        color_map.put("Water", "#6390F0");
-        color_map.put("Electric", "#F7D02C");
-        color_map.put("Grass", "#7AC74C");
-        color_map.put("Ice", "#96D9D6");
-        color_map.put("Fighting", "#C22E28");
-        color_map.put("Poison", "#A33EA1");
-        color_map.put("Ground", "#E2BF65");
-        color_map.put("Flying", "#A98FF3");
-        color_map.put("Psychic", "#F95587");
-        color_map.put("Bug", "#A6B91A");
-        color_map.put("Rock", "#B6A136");
-        color_map.put("Ghost", "#735797");
-        color_map.put("Dragon", "#6F35FC");
-        color_map.put("Dark", "#705746");
-        color_map.put("Steel", "#B7B7CE");
-        color_map.put("Fairy", "#D685AD");
+//        color_map.put("Normal", "#A8A77A");
+//        color_map.put("Fire", "#EE8130");
+//        color_map.put("Water", "#6390F0");
+//        color_map.put("Electric", "#F7D02C");
+//        color_map.put("Grass", "#7AC74C");
+//        color_map.put("Ice", "#96D9D6");
+//        color_map.put("Fighting", "#C22E28");
+//        color_map.put("Poison", "#A33EA1");
+//        color_map.put("Ground", "#E2BF65");
+//        color_map.put("Flying", "#A98FF3");
+//        color_map.put("Psychic", "#F95587");
+//        color_map.put("Bug", "#A6B91A");
+//        color_map.put("Rock", "#B6A136");
+//        color_map.put("Ghost", "#735797");
+//        color_map.put("Dragon", "#6F35FC");
+//        color_map.put("Dark", "#705746");
+//        color_map.put("Steel", "#B7B7CE");
+//        color_map.put("Fairy", "#D685AD");
+
+        color_map.put("Normal", "#A7A877");
+        color_map.put("Fire", "#FB6C6C");
+        color_map.put("Water", "#77BDFE");
+        color_map.put("Grass", "#48D0B0");
+        color_map.put("Electric", "#FFCE4B");
+        color_map.put("Ice", "#99D7D8");
+        color_map.put("Fighting", "#C03128");
+        color_map.put("Poison", "#9F419F");
+        color_map.put("Ground", "#E1C068");
+        color_map.put("Flying", "#A890F0");
+        color_map.put("Psychic", "#F95887");
+        color_map.put("Bug", "#A8B91F");
+        color_map.put("Rock", "#B8A038");
+        color_map.put("Ghost", "#705998");
+        color_map.put("Dark", "#6F5848");
+        color_map.put("Dragon", "#7138F8");
+        color_map.put("Steel", "#B8B8D0");
+        color_map.put("Fairy", "#A890F0");
     }
 
     @Override
@@ -261,7 +285,7 @@ public class AppData implements Initializable {
                     column = 0;
                     row++;
                 }
-                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";");
+                anchorpane.setStyle("-fx-background-color: " + color_map.get(pokemons.get(i).type1) + ";" + "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 7);");
                 gridpane.add(anchorpane, column++, row);
                 GridPane.setMargin(anchorpane, new Insets(10));
             }

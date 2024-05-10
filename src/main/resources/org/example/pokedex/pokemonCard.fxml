@@ -27,11 +27,20 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="img" fitHeight="128.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/all/bulbasaur.png" />
-               </image>
-            </ImageView>
+            <AnchorPane prefHeight="118.0" prefWidth="287.0">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="136.0" layoutX="84.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pokeball3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img" fitHeight="144.0" fitWidth="213.0" layoutX="45.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/all/bulbasaur.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
       <Button fx:id="details" layoutX="12.0" layoutY="166.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" styleClass="cardBtns" stylesheets="@styles.css" text="DETAILS" />
