@@ -2,6 +2,17 @@
 
 Pokedex-JavaFX is a JavaFX application that serves as a digital encyclopedia for Pokémon enthusiasts. It provides information about various Pokémon species, their abilities, types, stats, and more.
 
+# Demo Screenshots
+
+## Dashboard
+
+![Screenshot 2024-05-10 185720](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ababb259-db8e-4647-8f2d-f43758b1fc19)
+
+## Details Page
+
+![Screenshot 2024-05-10 185945](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ce97cad2-9ae1-4bf6-bdd5-9939d2fed227)
+
+
 ## Features
 
 - View a list of Pokémon with their respective images, names, and types.
@@ -39,12 +50,3 @@ Contributions are welcome! If you'd like to contribute to Pokedex-JavaFX, please
 5.Create a new Pull Request.
 6.Please ensure your code adheres to the existing code style and includes relevant test cases.
 
-# Demo Screenshots
-
-## Dashboard
-
-![Screenshot 2024-05-10 185720](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ababb259-db8e-4647-8f2d-f43758b1fc19)
-
-## Details Page
-
-![Screenshot 2024-05-10 185945](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ce97cad2-9ae1-4bf6-bdd5-9939d2fed227)
