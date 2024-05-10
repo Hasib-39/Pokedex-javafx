@@ -24,7 +24,7 @@ public class DbController {
             Class.forName("com.mysql.cj.jdbc.Driver");
             databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            e.printStackTrace();
         }
 
         return databaseLink;

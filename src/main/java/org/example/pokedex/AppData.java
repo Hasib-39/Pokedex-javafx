@@ -1,15 +1,23 @@
 package org.example.pokedex;
 
-
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,28 +26,28 @@ import java.util.*;
 
 public class AppData implements Initializable {
 
-    //    @FXML
-//    private Button favBtn;
+    @FXML
+    private Button favBtn;
     @FXML
     private TextField searchBar;
-    //    @FXML
-//    private Button searchBtn;
+    @FXML
+    private Button searchBtn;
     @FXML
     private GridPane gridpane;
 
     @FXML
     private ScrollPane scrollpane;
-    //    @FXML
-//    private Button details;
-//    private int cardno = 30;
+    @FXML
+    private Button details;
+    private int cardno = 30;
     private int beginCardno = 0;
     private int endCardno = 30;
-    //    private int fav_pokno;
-//    private int search_pokno;
-    private final int maxcardno = 801;
+    private int fav_pokno;
+    private int search_pokno;
+    private int maxcardno = 801;
     private String page_info = "Home";
-    private final List<PokemonModel> pokemons = new ArrayList<>();
-    private final Map<String, String> color_map = new HashMap<>();
+    private List<PokemonModel> pokemons = new ArrayList<>();
+    private Map<String, String> color_map = new HashMap<>();
 
     public List<PokemonModel> getPokemon(String sql, int value) {
         List<PokemonModel> pokemons_all = new ArrayList<>();
@@ -118,7 +126,7 @@ public class AppData implements Initializable {
 
             }
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            e.printStackTrace();
         }
     }
 
@@ -149,14 +157,14 @@ public class AppData implements Initializable {
 
             }
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            e.printStackTrace();
         }
     }
 
-//    public void nextprev_init() {
-//        beginCardno = 0;
-//        endCardno = 30;
-//    }
+    public void nextprev_init() {
+        beginCardno = 0;
+        endCardno = 30;
+    }
 
 
     public void nextClick() {
@@ -175,12 +183,11 @@ public class AppData implements Initializable {
             beginCardno = Math.max(beginCardno - 30, 0);
             endCardno = beginCardno + 30;
             home(beginCardno, endCardno);
+        } else if (Objects.equals(page_info, "Favourite")) {
+            // Handle favourite page
+        } else {
+            // Handle search page
         }
-//        else if (Objects.equals(page_info, "Favourite")) {
-//            // Handle favourite page
-//        } else {
-//            // Handle search page
-//        }
     }
 
 
@@ -213,7 +220,7 @@ public class AppData implements Initializable {
 
             }
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            e.printStackTrace();
         }
     }
 
@@ -261,7 +268,7 @@ public class AppData implements Initializable {
                 GridPane.setMargin(anchorpane, new Insets(10));
             }
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            e.printStackTrace();
         }
     }
 }
