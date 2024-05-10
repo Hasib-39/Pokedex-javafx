@@ -39,12 +39,12 @@ Contributions are welcome! If you'd like to contribute to Pokedex-JavaFX, please
 5.Create a new Pull Request.
 6.Please ensure your code adheres to the existing code style and includes relevant test cases.
 
-## Demo Screenshots
+# Demo Screenshots
 
-# Dashboard
+## Dashboard
 
 ![Screenshot 2024-05-10 185720](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ababb259-db8e-4647-8f2d-f43758b1fc19)
 
-# Details Page
+## Details Page
 
 ![Screenshot 2024-05-10 185945](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ce97cad2-9ae1-4bf6-bdd5-9939d2fed227)
