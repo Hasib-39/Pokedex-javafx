@@ -12,6 +12,9 @@ Pokedex-JavaFX is a JavaFX application that serves as a digital encyclopedia for
 
 ![Screenshot 2024-05-10 185945](https://github.com/Hasib-39/Pokedex-javafx/assets/111696693/ce97cad2-9ae1-4bf6-bdd5-9939d2fed227)
 
+## Demo Video link
+
+https://youtu.be/RpMgomoqydQ?si=SbLNM8cjJKSb_eXe
 
 ## Features
 
