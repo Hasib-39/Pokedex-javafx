@@ -31,7 +31,8 @@ https://youtu.be/RpMgomoqydQ?si=SbLNM8cjJKSb_eXe
 3. Now import the pokemon.csv file in your MySQL database after creating a table.
 4. Clone the repository.
 5. Open the project in your preferred Java IDE. It would be easier if you would use Intelij.
-6. Build and run the application.
+6. Add mysql jdbc jar file to your project structure library section.
+7. Build and run the application.
 
 ## Usage
 
